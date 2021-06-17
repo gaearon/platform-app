@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, startTransition } from 'react';
 import { Grid, Typography, useTheme } from '@material-ui/core';
 import { withContentRect } from 'react-measure';
 import * as d3 from 'd3';
@@ -107,7 +107,11 @@ function ClassicAssociationsBubbles({
       >
         <Slider
           defaultValue={minScore}
-          onChange={(_, val) => setMinScore(val)}
+          onChange={(_, val) => {
+            startTransition(() => {
+              setMinScore(val);
+            });
+          }}
         />
         <Grid
           item
