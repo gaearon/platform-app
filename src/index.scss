@@ -16,6 +16,16 @@ code {
     monospace;
 }
 
+.hide {
+  opacity: 0;
+  transition: opacity 0s 0s linear;
+}
+
+.show {
+  opacity: 1;
+  transition: opacity 0.2s 0.4s linear;
+}
+
 /* Rules for Bibliography abstract highlight */
 [data-entity='TARGET&DISEASE'],
 [data-entity='DISEASE'],

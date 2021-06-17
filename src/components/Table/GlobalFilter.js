@@ -1,12 +1,14 @@
-import React, { useState, startTransition } from 'react';
+import React, { useState, useTransition } from 'react';
 import { Grid, Input, IconButton } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import ClearIcon from '@material-ui/icons/Clear';
+import { CircularProgress } from '@material-ui/core';
 
 import { globalSearchStyles } from './tableStyles';
 
 function GlobalFilter({ onGlobalFilterChange }) {
   const [inputValue, setInputValue] = useState('');
+  const [isPending, startTransition] = useTransition();
 
   const handleInputChange = e => {
     setInputValue(e.target.value);
@@ -29,11 +31,9 @@ function GlobalFilter({ onGlobalFilterChange }) {
           classes={{ root: classes.root }}
           startAdornment={<SearchIcon />}
           endAdornment={
-            !!inputValue && (
-              <IconButton onClick={handleInputClean}>
-                <ClearIcon />
-              </IconButton>
-            )
+            <div className={isPending ? 'show' : 'hide'}>
+              <CircularProgress size={20} />
+            </div>
           }
           placeholder="Search"
           label="Filter"
