@@ -105,7 +105,10 @@ function ClassicAssociationsBubbles({
         svgContainer={svgRef}
         filenameStem={`${symbol}-associated-diseases-bubbles`}
       >
-        <Slider value={minScore} onChange={(_, val) => setMinScore(val)} />
+        <Slider
+          defaultValue={minScore}
+          onChange={(_, val) => setMinScore(val)}
+        />
         <Grid
           item
           container
