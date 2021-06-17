@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, startTransition } from 'react';
 import { Grid, Input, IconButton } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import ClearIcon from '@material-ui/icons/Clear';
@@ -10,7 +10,9 @@ function GlobalFilter({ onGlobalFilterChange }) {
 
   const handleInputChange = e => {
     setInputValue(e.target.value);
-    onGlobalFilterChange(e.target.value);
+    startTransition(() => {
+      onGlobalFilterChange(e.target.value);
+    });
   };
 
   const handleInputClean = () => {
