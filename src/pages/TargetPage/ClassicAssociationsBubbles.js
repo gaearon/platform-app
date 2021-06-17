@@ -1,4 +1,4 @@
-import React, { useRef, useState, startTransition } from 'react';
+import React, { useRef, useState, useTransition } from 'react';
 import { Grid, Typography, useTheme } from '@material-ui/core';
 import { withContentRect } from 'react-measure';
 import * as d3 from 'd3';
@@ -85,6 +85,7 @@ function ClassicAssociationsBubbles({
   contentRect,
 }) {
   const [minScore, setMinScore] = useState(0.1);
+  const [isPending, startTransition] = useTransition();
   const svgRef = useRef(null);
   const theme = useTheme();
   const assocs = associations.filter(assoc => assoc.score >= minScore);
@@ -130,6 +131,7 @@ function ClassicAssociationsBubbles({
                 ref={svgRef}
                 height={size}
                 width={size}
+                className={isPending ? 'pending' : 'done'}
               >
                 {root.descendants().map(d => {
                   return (

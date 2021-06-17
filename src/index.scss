@@ -26,6 +26,16 @@ code {
   transition: opacity 0.2s 0.4s linear;
 }
 
+.pending {
+  opacity: 0.7;
+  transition: opacity 0.2s 0.4s linear;
+}
+
+.done {
+  opacity: 1;
+  transition: opacity 0s 0s linear;
+}
+
 /* Rules for Bibliography abstract highlight */
 [data-entity='TARGET&DISEASE'],
 [data-entity='DISEASE'],
