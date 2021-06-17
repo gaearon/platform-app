@@ -2,7 +2,7 @@
 const config = {
   urlApi:
     window.configUrlApi ??
-    'https://api-beta-dot-open-targets-eu-dev.appspot.com/api/v4/graphql',
+    'https://api.platform.opentargets.org/api/v4/graphql',
   urlApiBeta:
     window.configUrlApiBeta ??
     'https://api-beta-dot-open-targets-eu-dev.appspot.com/api/v4/graphql',
